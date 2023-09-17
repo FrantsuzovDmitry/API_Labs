@@ -1,0 +1,2 @@
+This program authorizes the user via VK and sends an hh.API request to get 20 vacancies for the tags specified by the user. 
+The selected vacancies are recorded in a file. Upon completion of job processing, a text file with the selected vacancies opens.
