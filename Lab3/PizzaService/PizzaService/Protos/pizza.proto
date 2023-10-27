@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+option csharp_namespace = "PizzaService";
+
+package pizza;
+
+service Pizza {
+
+	// Create
+	rpc CreatePizza(CreatePizzaRequest) returns (CreatePizzaResponse) {}
+
+	// Read single
+	rpc ReadPizza(ReadPizzaRequest) returns (ReadPizzaResponse) {}
+
+	// Read list
+	rpc GetPizzaList(GetAllRequest) returns (GetAllResponse) {}
+
+	// Update
+	rpc UpdatePizza(UpdatePizzaRequest) returns (UpdatePizzaResponse) {}
+
+	// Delete
+	rpc DeletePizza(DeletePizzaRequest) returns (DeletePizzaResponse) {}
+}
+
+message CreatePizzaRequest {
+	string name = 1;
+	float price = 2;
+}
+
+message CreatePizzaResponse {
+	int32 id = 1;
+}
+
+message ReadPizzaRequest {
+	int32 id = 1;
+}
+
+message ReadPizzaResponse {
+	int32 id = 1;
+	string name = 2;
+	float price = 3;
+}
+
+message GetAllRequest {}
+
+message GetAllResponse {
+	repeated ReadPizzaResponse pizza_list = 1;
+}
+
+message UpdatePizzaRequest {
+	int32 id = 1;
+	string name = 2;
+	float price = 3;
+}
+
+message UpdatePizzaResponse {
+	int32 id = 1;
+}
+
+message DeletePizzaRequest {
+	int32 id = 1;
+}
+
+message DeletePizzaResponse {
+	int32 id = 1;
+}
